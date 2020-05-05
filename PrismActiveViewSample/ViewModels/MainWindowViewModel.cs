@@ -11,6 +11,7 @@ using System.Windows;
 
 namespace PrismActiveViewSample.ViewModels
 {
+
     public class MainWindowViewModel : BindableBase
     {
         private IRegionManager regionManager;
@@ -27,7 +28,6 @@ namespace PrismActiveViewSample.ViewModels
                 throw new ArgumentNullException(nameof(regionManager));
 
             this.regionManager = regionManager;
-
             Views = new ObservableCollection<string>();
             ActiveViews = new ObservableCollection<string>();
         }
