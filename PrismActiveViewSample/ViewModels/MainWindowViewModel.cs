@@ -1,6 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
+using PrismActiveViewSample.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -204,10 +205,7 @@ namespace PrismActiveViewSample.ViewModels
             //    region.Remove(activeView);
 
             //    if (region.Views.Count() > 0)
-            //    {
-            //        var view = region.Views.LastOrDefault();
-            //        region.Activate(view);
-            //    }
+            //        region.Activate(region.Views.Last());
             //}
 
             // 2 hack
@@ -236,10 +234,7 @@ namespace PrismActiveViewSample.ViewModels
                 region.Remove(activeItemMetadata.Item);
 
                 if (region.Views.Count() > 0)
-                {
-                    var view = region.Views.LastOrDefault();
-                    region.Activate(view);
-                }
+                    region.Activate(region.Views.Last());
             }
         }
 
