@@ -1,0 +1,53 @@
+﻿<Window x:Class="PrismActiveViewSample.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:views="clr-namespace:PrismActiveViewSample.Views"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="10,10,0,10" />
+                    <Setter Property="Height" Value="25" />
+                </Style>
+            </StackPanel.Resources>
+            <Button Content="View A" Command="{Binding NavigateCommand}" CommandParameter="{x:Type views:ViewA}" />
+            <Button Content="View B" Command="{Binding NavigateCommand}" CommandParameter="{x:Type views:ViewB}" />
+            <Button Content="View C" Command="{Binding NavigateCommand}" CommandParameter="{x:Type views:ViewC}" />
+            <Button Content="Activate Selected View" Command="{Binding ActivateSelectedViewCommand}" />
+            <Button Content="Remove Active" Command="{Binding RemoveActiveViewCommand}" />
+            <Button Content="Remove Selected View" Command="{Binding RemoveSelectedViewCommand}" />
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel>
+                <TextBlock Text="Views" FontSize="20" Margin="0,10,0,0" HorizontalAlignment="Center"/>
+                <ListBox ItemsSource="{Binding Views}" SelectedItem="{Binding SelectedViewName}" Height="100" Margin="10,10,0,0" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="ActiveViews" FontSize="20" Margin="0,10,0,0" HorizontalAlignment="Center"/>
+                <ListBox ItemsSource="{Binding ActiveViews}" Height="100"  Margin="10,10,10,0"/>
+            </StackPanel>
+
+        </Grid>
+
+        <ContentControl prism:RegionManager.RegionName="MainRegion" Grid.Row="2"/>
+    </Grid>
+</Window>
