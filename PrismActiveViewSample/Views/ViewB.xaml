@@ -10,7 +10,7 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="View B" FontSize="48"  />
-            <TextBlock Text="{Binding IsActiveState}" FontSize="18"/>
+            <TextBlock Text="{Binding IsActiveState}" FontSize="18" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
 </UserControl>

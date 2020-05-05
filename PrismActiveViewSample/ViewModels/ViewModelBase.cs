@@ -27,17 +27,4 @@ namespace PrismActiveViewSample.ViewModels
 
         public event EventHandler IsActiveChanged;
     }
-
-    public class ViewAViewModel : ViewModelBase
-    {
-
-    }
-    public class ViewBViewModel : ViewModelBase
-    {
-
-    }
-    public class ViewCViewModel : ViewModelBase
-    {
-
-    }
 }
